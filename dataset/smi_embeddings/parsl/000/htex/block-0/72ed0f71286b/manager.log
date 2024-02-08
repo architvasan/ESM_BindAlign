@@ -1,0 +1,28 @@
+2024-02-07 23:50:01.586 parsl:774 3147848 MainThread [INFO]  Python version: 3.10.13 (main, Sep 11 2023, 13:44:35) [GCC 11.2.0]
+2024-02-07 23:50:01.586 parsl:775 3147848 MainThread [INFO]  Debug logging: False
+2024-02-07 23:50:01.586 parsl:776 3147848 MainThread [INFO]  Log dir: /rbstor/abrace/src/ESM_BindAlign/dataset/smi_embeddings/parsl/000/htex
+2024-02-07 23:50:01.586 parsl:777 3147848 MainThread [INFO]  Manager ID: 72ed0f71286b
+2024-02-07 23:50:01.586 parsl:778 3147848 MainThread [INFO]  Block ID: 0
+2024-02-07 23:50:01.586 parsl:779 3147848 MainThread [INFO]  cores_per_worker: 1.0
+2024-02-07 23:50:01.586 parsl:780 3147848 MainThread [INFO]  mem_per_worker: None
+2024-02-07 23:50:01.586 parsl:781 3147848 MainThread [INFO]  task_port: 13569
+2024-02-07 23:50:01.586 parsl:782 3147848 MainThread [INFO]  result_port: 18954
+2024-02-07 23:50:01.587 parsl:783 3147848 MainThread [INFO]  addresses: 140.221.79.201
+2024-02-07 23:50:01.587 parsl:784 3147848 MainThread [INFO]  max_workers: inf
+2024-02-07 23:50:01.587 parsl:785 3147848 MainThread [INFO]  poll_period: 10
+2024-02-07 23:50:01.587 parsl:786 3147848 MainThread [INFO]  address_probe_timeout: 30
+2024-02-07 23:50:01.587 parsl:787 3147848 MainThread [INFO]  Prefetch capacity: 0
+2024-02-07 23:50:01.587 parsl:788 3147848 MainThread [INFO]  Heartbeat threshold: 120
+2024-02-07 23:50:01.587 parsl:789 3147848 MainThread [INFO]  Heartbeat period: 30
+2024-02-07 23:50:01.587 parsl:790 3147848 MainThread [INFO]  CPU affinity: block
+2024-02-07 23:50:01.587 parsl:791 3147848 MainThread [INFO]  Accelerators: 0 1
+2024-02-07 23:50:01.587 parsl:123 3147848 MainThread [INFO]  Manager started
+2024-02-07 23:50:01.597 parsl.executors.high_throughput.probe:47 3147848 MainThread [INFO]  Connected to interchange on 140.221.79.201
+2024-02-07 23:50:01.597 parsl:130 3147848 MainThread [INFO]  Connection to Interchange successful on 140.221.79.201
+2024-02-07 23:50:01.597 parsl:133 3147848 MainThread [INFO]  Task url : tcp://140.221.79.201:13569
+2024-02-07 23:50:01.598 parsl:134 3147848 MainThread [INFO]  Result url : tcp://140.221.79.201:18954
+2024-02-07 23:50:01.598 parsl:152 3147848 MainThread [INFO]  Manager connected to interchange
+2024-02-07 23:50:01.881 parsl:200 3147848 MainThread [INFO]  Manager will spawn 2 workers
+2024-02-07 23:50:01.884 parsl:240 3147848 Task-Puller [INFO]  starting
+2024-02-07 23:50:01.885 parsl:451 3147848 MainThread [INFO]  Loop start
+2024-02-07 23:50:31.892 parsl:334 3147848 Result-Pusher [INFO]  Sending heartbeat via results connection: last_result_beat=1707371401.8847215 heartbeat_period=30 seconds

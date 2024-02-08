@@ -1,0 +1,24 @@
+2024-02-07 23:59:46.196 worker_log:574 3158412 MainThread [INFO]  Worker 0 started
+2024-02-07 23:59:46.196 worker_log:622 3158412 MainThread [INFO]  Set worker CPU affinity to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+2024-02-07 23:59:46.197 worker_log:631 3158412 MainThread [INFO]  Pinned worker to accelerator: 0
+2024-02-07 23:59:46.198 worker_log:659 3158412 MainThread [INFO]  Received executor task 1
+2024-02-08 00:20:32.099 worker_log:675 3158412 MainThread [INFO]  Completed executor task 1
+2024-02-08 00:20:32.100 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 1
+2024-02-08 00:20:32.112 worker_log:659 3158412 MainThread [INFO]  Received executor task 3
+2024-02-08 00:21:56.242 worker_log:675 3158412 MainThread [INFO]  Completed executor task 3
+2024-02-08 00:21:56.243 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 3
+2024-02-08 00:21:56.254 worker_log:659 3158412 MainThread [INFO]  Received executor task 4
+2024-02-08 00:27:24.333 worker_log:675 3158412 MainThread [INFO]  Completed executor task 4
+2024-02-08 00:27:24.334 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 4
+2024-02-08 00:27:24.345 worker_log:659 3158412 MainThread [INFO]  Received executor task 6
+2024-02-08 00:28:33.782 worker_log:675 3158412 MainThread [INFO]  Completed executor task 6
+2024-02-08 00:28:33.783 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 6
+2024-02-08 00:28:33.794 worker_log:659 3158412 MainThread [INFO]  Received executor task 7
+2024-02-08 00:29:00.442 worker_log:675 3158412 MainThread [INFO]  Completed executor task 7
+2024-02-08 00:29:00.443 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 7
+2024-02-08 00:29:00.454 worker_log:659 3158412 MainThread [INFO]  Received executor task 8
+2024-02-08 00:30:16.841 worker_log:675 3158412 MainThread [INFO]  Completed executor task 8
+2024-02-08 00:30:16.842 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 8
+2024-02-08 00:30:16.853 worker_log:659 3158412 MainThread [INFO]  Received executor task 9
+2024-02-08 00:30:33.912 worker_log:675 3158412 MainThread [INFO]  Completed executor task 9
+2024-02-08 00:30:33.913 worker_log:686 3158412 MainThread [INFO]  All processing finished for executor task 9
