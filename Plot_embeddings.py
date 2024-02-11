@@ -80,7 +80,7 @@ print(protein_seq)
 Protein
 '''
 
-plt.scatter(prot_embedded[:,0], prot_embedded[:,1], s=2, c=protein_seq['length'], cmap='tab20c')#, vmin=-1, vmax=1)
+plt.scatter(x=prot_embedded[:,0], y=prot_embedded[:,1], s=2, c=protein_seq['length'], cmap='tab20c')#, vmin=-1, vmax=1)
 #plt.colorbar()
 plt.colorbar(label="Sequence length", orientation="horizontal")
 
