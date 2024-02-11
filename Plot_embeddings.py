@@ -84,7 +84,7 @@ plt.scatter(prot_embedded[:,0], prot_embedded[:,1], s=2, c=protein_seq['length']
 #plt.colorbar()
 plt.colorbar(label="Sequence length", orientation="horizontal")
 
-plt.savefig('ProteinEmbedded_length.png')
+plt.savefig('ProteinEmbedded_length.png', bbox_inches='tight')
 plt.close()
 
 print(protein_seq)
