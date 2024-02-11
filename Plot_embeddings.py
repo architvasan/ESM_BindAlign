@@ -82,9 +82,11 @@ protein_seq = pd.concat([protein_seq, pd.read_csv('dataset/DAVIS_test_prot.dat')
 
 protein_seq['length'] = [len(seq) for seq in protein_seq['Target Sequence']]
 #protein_seq['length']=(protein_seq['length']-protein_seq['length'].mean())/protein_seq['length'].std()
+mask = protein_seq['length'] < 2000
+
 print(protein_seq)
 
-plt.scatter(x=prot_embedded[:,0], y=prot_embedded[:,1], s=2, c=protein_seq['length'], cmap='tab20c')#, vmin=-1, vmax=1)
+plt.scatter(x=prot_embedded[:,0][mask], y=prot_embedded[:,1][mask], s=2, c=protein_seq['length'][mask], cmap='tab20c')#, vmin=-1, vmax=1)
 #plt.colorbar()
 plt.colorbar(label="Sequence length", orientation="horizontal")
 
@@ -109,7 +111,16 @@ smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_val.smi')])
 smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_test.smi')])
 smiles_seq['weight'] = [Descriptors.ExactMolWt(Chem.MolFromSmiles(smi)) for smi in smiles_seq['SMILES']]
 print(smiles_seq)
-plt.scatter(x=smi_embedded[:,0], y=smi_embedded[:,1], s=2, c=smiles_seq['weight'], cmap='tab20c', vmin=0, vmax=1000)#, vmin=-1, vmax=1)
+import matplotlib.pyplot as plt
+cmap = plt.get_cmap('tab20c')
+norm = plt.Normalize(0, 1000)
+
+color = cmap(norm(400.))
+mask = smiles_seq['weight'] < 2000
+#smiles_seq['weight'][mask]
+
+print(np.max(smiles_seq['weight']))
+plt.scatter(x=smi_embedded[:,0][mask], y=smi_embedded[:,1][mask], s=2, c=smiles_seq['weight'][mask], cmap='tab20c', vmin=0, vmax=1000)#, vmin=-1, vmax=1)
 #plt.colorbar()
 plt.colorbar(label="Molecular Weight", orientation="horizontal")
 
