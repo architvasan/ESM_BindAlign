@@ -1,6 +1,10 @@
 import numpy as np
 from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
+from rdkit import Chem
+import rdkit
+from rdkit.Chem import Descriptors
+
 def filter(ar):
   return ar[np.isfinite(ar)]
 
@@ -60,6 +64,9 @@ if False:
 '''
 Color data
 '''
+'''
+Protein
+'''
 
 import pandas as pd
 prot_embedded = np.load('dataset/tsne_prot.npy')
@@ -76,9 +83,6 @@ protein_seq = pd.concat([protein_seq, pd.read_csv('dataset/DAVIS_test_prot.dat')
 protein_seq['length'] = [len(seq) for seq in protein_seq['Target Sequence']]
 #protein_seq['length']=(protein_seq['length']-protein_seq['length'].mean())/protein_seq['length'].std()
 print(protein_seq)
-'''
-Protein
-'''
 
 plt.scatter(x=prot_embedded[:,0], y=prot_embedded[:,1], s=2, c=protein_seq['length'], cmap='tab20c')#, vmin=-1, vmax=1)
 #plt.colorbar()
@@ -89,5 +93,26 @@ plt.close()
 
 print(protein_seq)
 
+'''
+SMILES
+'''
 
+smi_embedded = np.load('dataset/tsne_smi.npy')
+smiles_seq = pd.read_csv('dataset/BindingDB_train.smi')
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/BindingDB_val.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/BindingDB_test.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/BIOSNAP_train.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/BIOSNAP_val.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/BIOSNAP_test.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_train.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_val.smi')])
+smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_test.smi')])
+smiles_seq['weight'] = [Descriptors.ExactMolWt(Chem.MolFromSmiles(smi)) for smi in smiles_seq['SMILES']]
+print(smiles_seq)
+plt.scatter(x=smi_embedded[:,0], y=smi_embedded[:,1], s=2, c=smiles_seq['weight'], cmap='tab20c')#, vmin=-1, vmax=1)
+#plt.colorbar()
+plt.colorbar(label="Molecular Weight", orientation="horizontal")
+
+plt.savefig('SMILESEmbedded_length.png', bbox_inches='tight')
+plt.close()
 
