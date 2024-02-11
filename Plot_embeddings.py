@@ -109,7 +109,7 @@ smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_val.smi')])
 smiles_seq = pd.concat([smiles_seq, pd.read_csv('dataset/DAVIS_test.smi')])
 smiles_seq['weight'] = [Descriptors.ExactMolWt(Chem.MolFromSmiles(smi)) for smi in smiles_seq['SMILES']]
 print(smiles_seq)
-plt.scatter(x=smi_embedded[:,0], y=smi_embedded[:,1], s=2, c=smiles_seq['weight'], cmap='tab20c')#, vmin=-1, vmax=1)
+plt.scatter(x=smi_embedded[:,0], y=smi_embedded[:,1], s=2, c=smiles_seq['weight'], cmap='tab20c', vmin=0, vmax=2000)#, vmin=-1, vmax=1)
 #plt.colorbar()
 plt.colorbar(label="Molecular Weight", orientation="horizontal")
 
