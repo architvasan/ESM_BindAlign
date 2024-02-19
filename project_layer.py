@@ -35,14 +35,14 @@ class EsmMolProjectionHead(nn.Module):
         # We use a different projection head for both modes
         # since the embeddings fall into different subspaces.
         self.projection_1 = nn.Sequential(
-            nn.Linear(config.hidden_size1, config.proj_size*2),
+            nn.Linear(hidden_size1, proj_size*2),
             nn.ReLU(),
-            nn.Linear(config.proj_size*2, config.proj_size),
+            nn.Linear(proj_size*2, proj_size),
         )
         self.projection_2 = nn.Sequential(
-            nn.Linear(config.hidden_size2, config.proj_size*2),
+            nn.Linear(hidden_size2, proj_size*2),
             nn.ReLU(),
-            nn.Linear(config.proj_size*2, config.proj_size),
+            nn.Linear(proj_size*2, proj_size),
         )
 
         
@@ -72,28 +72,32 @@ def dataload_fn(data, train_prop=0.8):
 
 
 def load_emb_data(dataloc, datasets, pattern, train_prop=0.8):
-    data = np.load(f'{dataloc}/{datasets[0]}_train_{pattern}')
+    data = np.load(f'{dataloc}/{datasets[0]}_train{pattern}')
     for d in datasets:
         for t in ['train', 'val', 'test']:
             if d!=datasets[0] and t!='train':
-                data = np.concatenate((protein_data, np.load(f'{dataloc}/{d}_{t}{pattern}')))
+                data = np.concatenate((data, np.load(f'{dataloc}/{d}_{t}{pattern}')))
     
     dataloader = dataload_fn(data)
     return dataloader
 
 
 def train_esm_mol():
-    from argparse import ArgumentParser
+    from argparse import ArgumentParser, SUPPRESS
     from pathlib import Path
     '''
     Set all arguments
     '''
-    parser = ArgumentParser()
+    parser = ArgumentParser(add_help=False)
+
+    parser.add_argument('-h', '--help', action='help', default=SUPPRESS,
+                    help='Show this help message and exit.')
+
     parser.add_argument(
-        "-h", "--hsize1", type=int, required=True, help="hidden size for esm embeddings"
+        "-r", "--hsize1", type=int, required=True, help="hidden size for esm embeddings"
     )
     parser.add_argument(
-        "-s", "--hsize2", type=int, require=True, help="hidden size for molformer embeddings"
+        "-s", "--hsize2", type=int, required=True, help="hidden size for molformer embeddings"
     )
     parser.add_argument(
         "-e", "--esmloc", type=Path, required=True, help="esm embeddings location"
@@ -111,10 +115,10 @@ def train_esm_mol():
         "-t", "--trainp", type=float, required=False, help="training proportion", default=0.8
     )
     parser.add_argument(
-        "c", "--epoch", type=int, required=False, help="number of training epochs", default=50
+        "-c", "--epoch", type=int, required=False, help="number of training epochs", default=50
     )
     parser.add_argument(
-        "l", "--lr", type=float, required=False, help="learning rate", default=0.0001
+        "-l", "--lr", type=float, required=False, help="learning rate", default=0.0001
     )
     args = parser.parse_args()
 
@@ -130,7 +134,7 @@ def train_esm_mol():
                                     embedding_regularizer = LpRegularizer()
                                     ))
     optimizer = torch.optim.Adam(
-                        [{"params": model.projection_1.parameters()}, {"params": model.projection_1.parameters()}],
+                        [{"params": model.projection_1.parameters()}, {"params": model.projection_2.parameters()}],
                         lr=args.lr,
                                 )
 
@@ -148,7 +152,7 @@ def train_esm_mol():
     '''
     loss_history = []
     loss_test_history = []
-    for i in tqdm(args.epoch):
+    for i in tqdm(range(args.epoch)):
         for j, (batch_e, batch_m) in enumerate(zip(esm_train, mol_train)):
             '''
             Training
@@ -174,8 +178,8 @@ def train_esm_mol():
                         model.projection_2(batch_mt.to(device))
                         )
             loss_test_i.append(loss_t) 
-        loss_test_history.append(np.mean(loss_test_i))
-        if loss_test_history[-1]==np.min(loss_test_history):
+        loss_test_history.append(torch.mean(torch.stack(loss_test_i)))
+        if loss_test_history[-1]==torch.min(torch.stack(loss_test_history)):
             torch.save({
                 'epoch': i,
                 'model_state_dict': model.projection_1.state_dict(),
