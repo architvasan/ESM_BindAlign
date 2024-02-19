@@ -64,18 +64,18 @@ num_data_workers = 1
 #esm2_t36_3B_UR50D,facebook/esm1b_t33_650M_UR50S
 esm_model, esm_tokenizer = get_esm_model('facebook/esm2_t6_8M_UR50D')
 print(esm_model)
-device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 esm_model.to(device)
 
 #summary(esm_model)
 #esm_hidden = esm_model.hidden_states[-1]
-
+#InMemoryDataset
 #data = single_sequence_per_line_data_reader('Combined_prot_seq.dat')
 dataloader = DataLoader(
     pin_memory=True,
     batch_size=batch_size,
-    num_workers=num_data_workers,
-    dataset=InMemoryDataset(data),
+    #num_workers=num_data_workers,
+    dataset=(data),
     collate_fn=DataCollator(esm_tokenizer),
     shuffle=False
 )
