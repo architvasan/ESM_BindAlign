@@ -16,87 +16,8 @@ from protein_search.distributed_inference import *
 import sys
 from tqdm import tqdm
 from datasets import Dataset
-from torch import nn, Tensor
-from torch.nn import TransformerEncoder, TransformerEncoderLayer
-
 #from torchsummary import summary
 
-class ProjectModel(nn.Module):
-
-    def __init__(self, in_dim, out_dim
-                 ):
-        super().__init__()
-        self.model_type = 'Linear'
-
-        self.dropout1 = nn.Dropout(0.2)
-        self.linear1 = nn.Linear(in_dim, out_dim)
-        self.act1 = nn.ReLU()
-
-        self.init_weights()
-
-    def init_weights(self) -> None:
-        initrange = 0.1
-        self.embedding.weight.data.uniform_(-initrange, initrange)
-        self.linear1.bias.data.zero_()
-        self.linear1.weight.data.uniform_(-initrange, initrange)
-    def forward(self, src: Tensor, src_mask: Tensor = None) -> Tensor:
-        """
-        Arguments:
-            src: Tensor, shape ``[seq_len, batch_size]``
-            src_mask: Tensor, shape ``[seq_len, seq_len]``
-
-        Returns:
-            output Tensor of shape ``[seq_len, batch_size, ntoken]``
-        """
-        output = self.dropout1(src)
-        output = self.linear1(output)
-        output = self.act1(output)
-        return output #torch.reshape(output, (-1,))
-
-def training_data(features, labels):
-    return
-
-
-
-
-
-
-'''
-Load protein embeddings:
-'''
-protein_data = np.load('dataset/protein_embeddings/BindingDB_train_prot.dat-embeddings.npy')
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BindingDB_val_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BindingDB_test_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BIOSNAP_train_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BIOSNAP_test_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BIOSNAP_val_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/DAVIS_train_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/DAVIS_test_prot.dat-embeddings.npy')))
-protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/DAVIS_val_prot.dat-embeddings.npy')))
-
-'''
-Load SMILES embeddings
-'''
-smiles_data = np.load('dataset/smi_embeddings/BindingDB_train.smi-embeddings.npy')
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/BindingDB_val.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/BindingDB_test.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/BIOSNAP_train.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/BIOSNAP_test.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/BIOSNAP_val.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_train.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_test.smi-embeddings.npy')))
-smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_val.smi-embeddings.npy')))
-
-print(protein_data.shape)
-print(smiles_data.shape)
-
-
-
-
-
-
-
-sys.exit()
 ###########################################################
 ###########################################################
 if False:
@@ -148,13 +69,13 @@ esm_model.to(device)
 
 #summary(esm_model)
 #esm_hidden = esm_model.hidden_states[-1]
-#InMemoryDataset
+
 #data = single_sequence_per_line_data_reader('Combined_prot_seq.dat')
 dataloader = DataLoader(
     pin_memory=True,
     batch_size=batch_size,
-    #num_workers=num_data_workers,
-    dataset=(data),
+    num_workers=num_data_workers,
+    dataset=InMemoryDataset(data),
     collate_fn=DataCollator(esm_tokenizer),
     shuffle=False
 )

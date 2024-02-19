@@ -20,6 +20,7 @@ from torch import nn, Tensor
 from torch.nn import TransformerEncoder, TransformerEncoderLayer
 
 #from torchsummary import summary
+torch.autograd.set_detect_anomaly(True)
 
 class ProjectModel(nn.Module):
 
@@ -28,17 +29,34 @@ class ProjectModel(nn.Module):
         super().__init__()
         self.model_type = 'Linear'
 
-        self.dropout1 = nn.Dropout(0.2)
-        self.linear1 = nn.Linear(in_dim, out_dim)
-        self.act1 = nn.ReLU()
-
+        self.embedding = nn.Embedding(in_dim, 2048)
+        self.batchnorm = nn.BatchNorm1d(in_dim)
+        self.dropout1 = nn.Dropout(0.5)
+        self.linear1 = nn.Linear(in_dim, 2048)
+        self.act1 = nn.SELU()
+        self.batchnorm2 = nn.BatchNorm1d(2048)
+        self.dropout2 = nn.Dropout(0.5)
+        self.linear2 = nn.Linear(2048, 1024)
+        self.act2 = nn.SELU()
+        self.batchnorm3 = nn.BatchNorm1d(1024)
+        self.dropout3 = nn.Dropout(0.5)
+        self.linear3 = nn.Linear(1024, out_dim)
+        self.act3 = nn.SELU()
+        #print(self.linear1.weight.dtype) 
+        
         self.init_weights()
 
     def init_weights(self) -> None:
         initrange = 0.1
-        self.embedding.weight.data.uniform_(-initrange, initrange)
+        #self.embedding.weight.data.uniform_(-initrange, initrange)
+        #self.batchnorm.bias.data.zero_()
         self.linear1.bias.data.zero_()
+        self.linear2.bias.data.zero_()
+        self.linear3.bias.data.zero_()
+
         self.linear1.weight.data.uniform_(-initrange, initrange)
+        self.linear2.weight.data.uniform_(-initrange, initrange)
+        self.linear3.weight.data.uniform_(-initrange, initrange)
     def forward(self, src: Tensor, src_mask: Tensor = None) -> Tensor:
         """
         Arguments:
@@ -48,17 +66,33 @@ class ProjectModel(nn.Module):
         Returns:
             output Tensor of shape ``[seq_len, batch_size, ntoken]``
         """
-        output = self.dropout1(src)
+        output = self.batchnorm(src)
+        output = self.dropout1(output)
+        #print(src.shape)
         output = self.linear1(output)
         output = self.act1(output)
+        output = self.batchnorm2(output)
+        output = self.dropout2(output)
+        output = self.linear2(output)
+        output = self.act2(output)
+        output = self.batchnorm3(output)
+        output = self.dropout3(output)
+        output = self.linear3(output)
+        output = self.act3(output)
         return output #torch.reshape(output, (-1,))
 
 def training_data(features, labels):
-    return
+    feature_tensor = torch.tensor(features).to(torch.float32)
+    label_tensor = torch.tensor(labels).to(torch.float32)
 
+    dataset = TensorDataset(feature_tensor, label_tensor)
+    train_size = int(0.8 * len(dataset))
+    test_size = int(len(dataset) - train_size)
+    training_data, test_data = torch.utils.data.random_split(dataset, [train_size, test_size])
+    train_dataloader = DataLoader(training_data, batch_size=512, shuffle=True)
+    test_dataloader = DataLoader(test_data, batch_size=512, shuffle=True)
 
-
-
+    return train_dataloader, test_dataloader
 
 
 '''
@@ -87,16 +121,84 @@ smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS
 smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_test.smi-embeddings.npy')))
 smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_val.smi-embeddings.npy')))
 
-print(protein_data.shape)
-print(smiles_data.shape)
+print(protein_data.shape[1])
+print(smiles_data.shape[1])
+
+train_dataloader, test_dataloader = training_data(protein_data, smiles_data)
+device = torch.device('cuda' if torch.cuda.is_available() else "cpu")
+
+model = ProjectModel(in_dim = protein_data.shape[1], out_dim = smiles_data.shape[1])
+model.to(device)
+print(model)
+
+optimizer = torch.optim.Adam(model.parameters(), lr = 1e-5, weight_decay=1e-5)
+from pytorch_metric_learning import losses
+#loss_fn = losses.TripletMarginLoss()
+
+from pytorch_metric_learning.distances import CosineSimilarity
+from pytorch_metric_learning.reducers import ThresholdReducer
+from pytorch_metric_learning.regularizers import LpRegularizer
+from pytorch_metric_learning import losses
+
+from pytorch_metric_learning.losses import SelfSupervisedLoss,TripletMarginLoss
+loss_fn = SelfSupervisedLoss(TripletMarginLoss(
+                                    distance = CosineSimilarity(),
+                                    reducer = ThresholdReducer(high=0.3),
+                                    embedding_regularizer = LpRegularizer()
+                                ))
+#loss_fn = SelfSupervisedLoss(TripletMarginLoss(
+#                                    ))
 
 
+loss_test_hist = []
+loss_test_meanvals = []
+for i in tqdm(range(50)):
+    for j, (batch_X, batch_Y) in enumerate(train_dataloader):
+        #print(batch_X.dtype)
+        print(batch_X)
+        print(model.parameters)
+        preds = model(batch_X.to(device))
+        #print(preds)
+        #print(preds.shape)
+        #print(batch_Y.shape)
+        loss = loss_fn(preds, batch_Y.to(device))
+        print(loss)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-
-
-
-
+    loss_test = SelfSupervisedLoss(TripletMarginLoss())
+    loss_test_i = []
+    for k, (batch_Xt, batch_yt) in enumerate(test_dataloader):
+        y_hat = model(batch_Xt.to(device))
+        y_grnd = batch_yt.to(device)
+        loss_test_k = loss_test(y_hat, y_grnd)
+        loss_test_hist.append({'epoch' : i, 'minibatch': k, 'trainloss': loss_test_k})
+        loss_test_i.append(loss_test_k)
+    print(loss_test_i)
+    if False:
+        loss_test_meanvals.append(np.mean(loss_test_i.to_numpy())) 
+        if loss_test_meanvals[-1]==np.max(loss_test_meanvals):
+            torch.save({
+                'epoch': i,
+                'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'loss': loss,
+                }, f'models/{base}.pt')
+        
+loss_test_hist_df = pd.DataFrame(loss_test_hist)
+loss_test_hist_df.to_csv(f'test_loss_overtime.csv')
+    
 sys.exit()
+
+
+
+
+
+
+
+
+
 ###########################################################
 ###########################################################
 if False:
@@ -143,18 +245,17 @@ num_data_workers = 1
 #esm2_t36_3B_UR50D,facebook/esm1b_t33_650M_UR50S
 esm_model, esm_tokenizer = get_esm_model('facebook/esm2_t6_8M_UR50D')
 print(esm_model)
-device = torch.device('cuda' if torch.cuda.is_available() else "cpu")
 esm_model.to(device)
 
 #summary(esm_model)
 #esm_hidden = esm_model.hidden_states[-1]
-#InMemoryDataset
+
 #data = single_sequence_per_line_data_reader('Combined_prot_seq.dat')
 dataloader = DataLoader(
     pin_memory=True,
     batch_size=batch_size,
-    #num_workers=num_data_workers,
-    dataset=(data),
+    num_workers=num_data_workers,
+    dataset=InMemoryDataset(data),
     collate_fn=DataCollator(esm_tokenizer),
     shuffle=False
 )
