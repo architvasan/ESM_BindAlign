@@ -23,6 +23,9 @@ from pytorch_metric_learning.distances import CosineSimilarity
 from pytorch_metric_learning.reducers import ThresholdReducer
 from pytorch_metric_learning.regularizers import LpRegularizer
 from pytorch_metric_learning import losses
+import torch.nn.functional as F
+
+torch.autograd.set_detect_anomaly(True)
 
 '''
 Define classes to create projection layers
@@ -35,16 +38,17 @@ class EsmMolProjectionHead(nn.Module):
         # We use a different projection head for both modes
         # since the embeddings fall into different subspaces.
         self.projection_1 = nn.Sequential(
-            nn.Linear(hidden_size1, proj_size*2),
-            nn.ReLU(),
-            nn.Linear(proj_size*2, proj_size),
+            nn.Linear(hidden_size1, proj_size*4),
+            nn.LeakyReLU(0.2),
+            nn.Linear(proj_size*4, proj_size*2),
+            nn.LeakyReLU(0.2),
+            nn.Linear(proj_size*2, proj_size)
         )
         self.projection_2 = nn.Sequential(
             nn.Linear(hidden_size2, proj_size*2),
-            nn.ReLU(),
+            nn.LeakyReLU(0.2),
             nn.Linear(proj_size*2, proj_size),
         )
-
         
     def forward(self, x1: torch.Tensor, x2:torch.Tensor) -> torch.Tensor:
         # Project the embeddings into a lower dimensional space
@@ -62,6 +66,16 @@ Test training of projection layers
 
 def dataload_fn(data, train_prop=0.8):
     input_tensor = torch.tensor(data).to(torch.float32)
+    if False:
+        means = input_tensor.mean(dim=1, keepdim=True)
+        stds = input_tensor.std(dim=1, keepdim=True)
+        input_tensor = (input_tensor - means) / stds
+        outmap_min, _ = torch.min(input_tensor, dim=1, keepdim=True)
+        outmap_max, _ = torch.max(input_tensor, dim=1, keepdim=True)
+        input_tensor = (input_tensor - outmap_min) / (outmap_max - outmap_min) # Broadcasting rules apply
+    #input_tensor = torch.add(input_tensor, 2)
+    #input_tensor = F.normalize(input_tensor)#, dim = 0)
+    print(input_tensor)
     train_size = int(train_prop * len(input_tensor))
     test_size = int(len(input_tensor) - train_size)
     training_data, test_data = torch.utils.data.random_split(input_tensor, [train_size, test_size])
@@ -72,11 +86,9 @@ def dataload_fn(data, train_prop=0.8):
 
 
 def load_emb_data(dataloc, datasets, pattern, train_prop=0.8):
-    data = np.load(f'{dataloc}/{datasets[0]}_train{pattern}')
-    for d in datasets:
-        for t in ['train', 'val', 'test']:
-            if d!=datasets[0] and t!='train':
-                data = np.concatenate((data, np.load(f'{dataloc}/{d}_{t}{pattern}')))
+    data = np.load(f'{dataloc}/{datasets}_train{pattern}')
+    for t in ['val', 'test']:
+        data = np.concatenate((data, np.load(f'{dataloc}/{datasets}_{t}{pattern}')))
     
     dataloader = dataload_fn(data)
     return dataloader
@@ -88,10 +100,10 @@ def train_esm_mol():
     '''
     Set all arguments
     '''
-    parser = ArgumentParser(add_help=False)
+    parser = ArgumentParser()#add_help=False)
 
-    parser.add_argument('-h', '--help', action='help', default=SUPPRESS,
-                    help='Show this help message and exit.')
+    #parser.add_argument('-h', '--help', action='help', default=SUPPRESS,
+    #                help='Show this help message and exit.')
 
     parser.add_argument(
         "-r", "--hsize1", type=int, required=True, help="hidden size for esm embeddings"
@@ -112,6 +124,9 @@ def train_esm_mol():
         "-o", "--out", type=Path, required=True, help="output directory"
     )
     parser.add_argument(
+        "-d", "--dataset", type=str, required=True, help="dataset: BindingDB, BIOSNAP, DAVIS"
+    )
+    parser.add_argument(
         "-t", "--trainp", type=float, required=False, help="training proportion", default=0.8
     )
     parser.add_argument(
@@ -119,6 +134,9 @@ def train_esm_mol():
     )
     parser.add_argument(
         "-l", "--lr", type=float, required=False, help="learning rate", default=0.0001
+    )
+    parser.add_argument(
+        "-b", "--early", type=int, required=False, help="early stop", default=100
     )
     args = parser.parse_args()
 
@@ -143,16 +161,19 @@ def train_esm_mol():
     '''
     esm_pattern ='_prot.dat-embeddings.npy'
     mol_pattern = '.smi-embeddings.npy'
-    datasets = ['BindingDB', 'BIOSNAP', 'DAVIS']
-    esm_train, esm_test = load_emb_data(args.esmloc, datasets, esm_pattern, train_prop=args.trainp)
-    mol_train, mol_test = load_emb_data(args.molloc, datasets, mol_pattern, train_prop=args.trainp)
+    #datasets = ['BindingDB']#'BIOSNAP', 'DAVIS']
+    #'BindingDB', 
+    esm_train, esm_test = load_emb_data(args.esmloc, args.dataset, esm_pattern, train_prop=args.trainp)
+    mol_train, mol_test = load_emb_data(args.molloc, args.dataset, mol_pattern, train_prop=args.trainp)
 
     '''
     Begin training loop
     '''
     loss_history = []
     loss_test_history = []
+    notmin=0
     for i in tqdm(range(args.epoch)):
+        loss_train_i = []
         for j, (batch_e, batch_m) in enumerate(zip(esm_train, mol_train)):
             '''
             Training
@@ -162,10 +183,11 @@ def train_esm_mol():
                         model.projection_2(batch_m.to(device))
                         )
 
-            loss_history.append(loss.item())
+            loss_train_i.append(loss.item())
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
+        loss_history.append(np.min(loss_train_i))
         
         '''
         Validation
@@ -177,34 +199,41 @@ def train_esm_mol():
                         model.projection_1(batch_et.to(device)),
                         model.projection_2(batch_mt.to(device))
                         )
-            loss_test_i.append(loss_t) 
-        loss_test_history.append(torch.mean(torch.stack(loss_test_i)))
-        if loss_test_history[-1]==torch.min(torch.stack(loss_test_history)):
+            loss_test_i.append(loss_t.item()) 
+        loss_test_history.append(np.mean((loss_test_i)))
+
+        if loss_test_history[-1]<=np.min(loss_test_history):
+            notmin = 0
+            print("min")
             torch.save({
                 'epoch': i,
                 'model_state_dict': model.projection_1.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
                 'loss': loss,
-                }, f'{args.out}/{esm_proj}.pt')
+                }, f'{args.out}/esm_{args.dataset}proj.pt')
 
             torch.save({
                 'epoch': i,
                 'model_state_dict': model.projection_2.state_dict(),
                 'optimizer_state_dict': optimizer.state_dict(),
                 'loss': loss,                                 
-                }, f'{args.out}/{mol_proj}.pt')
-            
+                }, f'{args.out}/mol_{args.dataset}proj.pt')
+        else:
+            notmin+=1
+            if notmin>=args.early:
+                return loss_history, loss_test
         if i%10==0:
             print(loss_test_history)
             print(loss_history)
 
-    #print(model.parameters)
-    return loss_history, loss_test
+    print(model.parameters)
+    np.savetxt(f'{args.out}/loss_train_{args.dataset}.dat', loss_history)
+    np.savetxt(f'{args.out}/loss_test_{args.dataset}.dat', loss_test_history)
+    return loss_history, loss_test_history
 
 
 if __name__ == "__main__":
-    train_esm_mol()
-
+    loss_history, loss_test = train_esm_mol()
 
 
 

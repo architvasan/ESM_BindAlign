@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 from rdkit import Chem
 import rdkit
 from rdkit.Chem import Descriptors
+import sys
 
 def filter(ar):
   return ar[np.isfinite(ar)]
 
-if False:
+if True:
     protein_data = np.load('dataset/protein_embeddings/BindingDB_train_prot.dat-embeddings.npy')
     protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BindingDB_val_prot.dat-embeddings.npy')))
     protein_data = np.concatenate((protein_data, np.load('dataset/protein_embeddings/BindingDB_test_prot.dat-embeddings.npy')))
@@ -28,7 +29,11 @@ if False:
     smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_train.smi-embeddings.npy')))
     smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_test.smi-embeddings.npy')))
     smiles_data = np.concatenate((smiles_data, np.load('dataset/smi_embeddings/DAVIS_val.smi-embeddings.npy')))
+
+    print(protein_data.shape)
+    print(smiles_data.shape)
     
+if False:
     '''
     Protein
     '''
@@ -60,6 +65,8 @@ if False:
     plt.scatter(smi_embedded[:,0], smi_embedded[:,1], s=2, color='black')
     plt.savefig('SmiEmbedded.png')
     plt.close()
+
+sys.exit()
 
 '''
 Color data
@@ -116,7 +123,7 @@ cmap = plt.get_cmap('tab20c')
 norm = plt.Normalize(0, 1000)
 
 color = cmap(norm(400.))
-mask = smiles_seq['weight'] < 2000
+mask = smiles_seq['weight'] < 1000
 #smiles_seq['weight'][mask]
 
 print(np.max(smiles_seq['weight']))
@@ -125,5 +132,15 @@ plt.scatter(x=smi_embedded[:,0][mask], y=smi_embedded[:,1][mask], s=2, c=smiles_
 plt.colorbar(label="Molecular Weight", orientation="horizontal")
 
 plt.savefig('SMILESEmbedded_length.png', bbox_inches='tight')
+plt.close()
+
+'''
+Protein embedding with molecular weight
+'''
+plt.scatter(x=prot_embedded[:,0][mask], y=prot_embedded[:,1][mask], s=2, c=smiles_seq['weight'][mask], cmap='tab20c')#, vmin=-1, vmax=1)
+#plt.colorbar()
+plt.colorbar(label="Sequence length", orientation="horizontal")
+
+plt.savefig('ProteinEmbedded_molweight.png', bbox_inches='tight')
 plt.close()
 
