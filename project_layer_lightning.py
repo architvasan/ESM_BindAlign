@@ -37,7 +37,7 @@ Define classes to create projection layers
 '''
 
 class EsmMolProjectionHead(L.LightningModule):
-    def __init__(self, projection_1, projection_2, projection_3, loss_fn):
+    def __init__(self, projection_1, projection_2, projection_3, loss_fn, base_lr):
         super().__init__()
         # We use a different projection head for both modes
         # since the embeddings fall into different subspaces.
@@ -45,7 +45,7 @@ class EsmMolProjectionHead(L.LightningModule):
         self.projection_2 = projection_2
         self.projection_3 = projection_3
         self.loss_fn = loss_fn
-    
+        self.lr = base_lr 
     def training_step(self, batch, batch_idx):
         # Project the embeddings into a lower dimensional space
         # These have shape (batch_size, projection_size)
@@ -56,9 +56,9 @@ class EsmMolProjectionHead(L.LightningModule):
         loss = self.loss_fn(anchor, positive, negative)
         self.log("train_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True, sync_dist=True)
         # Compute the metric loss following pytorch-metric-learning
-    
+        return loss 
     def configure_optimizers(self):
-        optimizer = optim.Adam(self.parameters(), lr = 1e-3)
+        optimizer = optim.Adam(self.parameters(), lr = self.lr)
         return optimizer
 
     def validation_step(self, batch, batch_idx):
@@ -69,7 +69,7 @@ class EsmMolProjectionHead(L.LightningModule):
         negative = self.projection_3(y2)
         val_loss = self.loss_fn(anchor, positive, negative)
         self.log("val_loss", val_loss, on_step=True, on_epoch=True, prog_bar=True, logger=True, sync_dist=True)
-
+        return val_loss
 
 def dataload_fn(data1, data2, train_prop=0.8, BATCH=64):
     input_tensor1 = torch.tensor(data1).to(torch.float32)
@@ -79,8 +79,8 @@ def dataload_fn(data1, data2, train_prop=0.8, BATCH=64):
     train_size = int(train_prop * len(dataset))
     test_size = int(len(dataset) - train_size)
     training_data, test_data = torch.utils.data.random_split(dataset, [train_size, test_size])
-    train_dataloader = DataLoader(training_data, batch_size=BATCH, shuffle=True)
-    test_dataloader = DataLoader(test_data, batch_size=BATCH, shuffle=False)
+    train_dataloader = DataLoader(training_data, batch_size=BATCH, shuffle=True, num_workers=39)
+    test_dataloader = DataLoader(test_data, batch_size=BATCH, shuffle=False, num_workers=39)
     return train_dataloader, test_dataloader
 
 
@@ -173,7 +173,7 @@ def train_esm_mol():
     ### loss function is Triplet Margin loss
     lossfn = nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction='mean')
 
-    projhead = EsmMolProjectionHead(projection_1, projection_2, projection_3, lossfn)
+    projhead = EsmMolProjectionHead(projection_1, projection_2, projection_3, lossfn, args.lr)
    
     '''
     Load data
@@ -188,10 +188,11 @@ def train_esm_mol():
     Do training
     '''
 
-    wandb_logger = WandbLogger(project="metric_lightning_2")
+    wandb_logger = WandbLogger(project="metric_learning")
     trainer = L.Trainer(limit_train_batches=args.batch,
                             max_epochs=args.epoch,
-                            logger=wandb_logger)
+                            logger=wandb_logger,
+                            log_every_n_steps=30)
 
     trainer.fit(projhead, trainloader, testloader)
 
