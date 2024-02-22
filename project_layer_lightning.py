@@ -56,7 +56,7 @@ class EsmMolProjectionHead(L.LightningModule):
         positive = self.projection_2(y)
         negative = self.projection_3(y2)
         loss = self.loss_fn(anchor, positive, negative)
-        self.log("train_loss", loss)
+        self.log("train_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True, sync_dist=True)
         # Compute the metric loss following pytorch-metric-learning
     
     def configure_optimizers(self):
@@ -70,7 +70,7 @@ class EsmMolProjectionHead(L.LightningModule):
         positive = self.projection_2(y)
         negative = self.projection_3(y2)
         val_loss = self.loss_fn(anchor, positive, negative)
-        self.log("val_loss", val_loss)
+        self.log("val_loss", val_loss, on_step=True, on_epoch=True, prog_bar=True, logger=True, sync_dist=True)
 
 
 def dataload_fn(data1, data2, train_prop=0.8, BATCH=64):
@@ -82,7 +82,7 @@ def dataload_fn(data1, data2, train_prop=0.8, BATCH=64):
     test_size = int(len(dataset) - train_size)
     training_data, test_data = torch.utils.data.random_split(dataset, [train_size, test_size])
     train_dataloader = DataLoader(training_data, batch_size=BATCH, shuffle=True)
-    test_dataloader = DataLoader(test_data, batch_size=BATCH, shuffle=True)
+    test_dataloader = DataLoader(test_data, batch_size=BATCH, shuffle=False)
 
     if False:
         means = input_tensor.mean(dim=1, keepdim=True)
@@ -206,7 +206,7 @@ def train_esm_mol():
     Do training
     '''
 
-    wandb_logger = WandbLogger(project="metric_lightning")
+    wandb_logger = WandbLogger(project="metric_lightning_2")
     trainer = L.Trainer(limit_train_batches=args.batch,
                             max_epochs=args.epoch,
                             logger=wandb_logger)

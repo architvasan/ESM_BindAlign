@@ -93,6 +93,19 @@ def load_emb_data(dataloc, datasets, pattern, train_prop=0.8):
     dataloader = dataload_fn(data)
     return dataloader
 
+def load_emb_data_together(dataloc, datasets, pattern, train_prop=0.8):
+    data = np.load(f'{dataloc}/{datasets[0]}_train{pattern}')
+    for d in datasets:
+        for t in ['val', 'test']:
+            if d!=datasets[0] and t!='train':
+                data = np.concatenate((data, np.load(f'{dataloc}/{d}_{t}{pattern}')))
+    
+    dataloader = dataload_fn(data)
+    return dataloader
+
+
+
+
 
 def train_esm_mol():
     from argparse import ArgumentParser, SUPPRESS
@@ -151,20 +164,23 @@ def train_esm_mol():
                                     reducer = ThresholdReducer(high=0.3),
                                     embedding_regularizer = LpRegularizer()
                                     ))
-    optimizer = torch.optim.Adam(
-                        [{"params": model.projection_1.parameters()}, {"params": model.projection_2.parameters()}],
-                        lr=args.lr,
-                                )
+    if False:
+        optimizer = torch.optim.Adam(
+                            [{"params": model.projection_1.parameters()}, {"params": model.projection_2.parameters()}],
+                            lr=args.lr,
+                                    )
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     '''
     Load data
     '''
     esm_pattern ='_prot.dat-embeddings.npy'
     mol_pattern = '.smi-embeddings.npy'
-    #datasets = ['BindingDB']#'BIOSNAP', 'DAVIS']
+    datasets = ['BindingDB', 'DAVIS']#'BIOSNAP', 'DAVIS']
     #'BindingDB', 
-    esm_train, esm_test = load_emb_data(args.esmloc, args.dataset, esm_pattern, train_prop=args.trainp)
-    mol_train, mol_test = load_emb_data(args.molloc, args.dataset, mol_pattern, train_prop=args.trainp)
+    esm_train, esm_test = load_emb_data_together(args.esmloc, datasets, esm_pattern, train_prop=args.trainp)
+    mol_train, mol_test = load_emb_data_together(args.molloc, datasets, mol_pattern, train_prop=args.trainp)
 
     '''
     Begin training loop
@@ -192,7 +208,11 @@ def train_esm_mol():
         '''
         Validation
         '''
-        loss_test = SelfSupervisedLoss(TripletMarginLoss())
+        loss_test = SelfSupervisedLoss(TripletMarginLoss(
+                                          distance = CosineSimilarity(),
+                                          reducer = ThresholdReducer(high=0.3),
+                                          embedding_regularizer = LpRegularizer()
+                                          ))
         loss_test_i = []
         for k, (batch_et, batch_mt) in enumerate(zip(esm_test, mol_test)):
             loss_t = loss_test(
