@@ -174,7 +174,6 @@ def train_esm_mol():
                                 logger=wandb_logger,
                                 log_every_n_steps=1)
 
-        #limit_train_batches=config['batch'],
         trainer.fit(projhead, trainloader, testloader)
     else:
         print("no Training")
@@ -194,10 +193,8 @@ def train_esm_mol():
         out_patt = config['InfOut']
         torch.save(prot_proj, f'prot_{out_patt}.pt')
         torch.save(mol_proj, 'mol_{out_patt}.pt')
-        #print(projhead.projection_1(torch.tensor(protdat).to('cuda')))
 
     return 
-
 
 if __name__ == "__main__":
     train_esm_mol()
