@@ -30,6 +30,7 @@ from torchvision.transforms import ToTensor
 import lightning as L
 from pytorch_lightning.loggers import WandbLogger
 import json
+from lightning.pytorch.callbacks.early_stopping import EarlyStopping
 
 def ParamsJson(json_file):
     with open(json_file) as f:
@@ -95,14 +96,25 @@ def load_emb_data_together(esmloc, molloc, datasets, esmpattern, molpattern, tra
     data1 = np.load(f'{esmloc}/{datasets[0]}_train{esmpattern}')
     data2 = np.load(f'{molloc}/{datasets[0]}_train{molpattern}')
     for d in datasets:
-        for t in ['val', 'test']:
-            if d!=datasets[0] and t!='train':
+        for t in ['train', 'val', 'test']:
+            if d!=datasets[0] or t!='train':
                 data1 = np.concatenate((data1, np.load(f'{esmloc}/{d}_{t}{esmpattern}')))
                 data2 =  np.concatenate((data2, np.load(f'{molloc}/{d}_{t}{molpattern}')))
     print(data1.shape)
     print(data2.shape)
     trainloader, testloader = dataload_fn(data1, data2, train_prop, batch)
     return trainloader, testloader, torch.tensor(data1).to(torch.float32), torch.tensor(data2).to(torch.float32)
+
+def load_inference_emb(esmloc, molloc, datasets, esmpattern, molpattern):
+    data1 = np.load(f'{esmloc}/{datasets[0]}_train{esmpattern}')
+    data2 = np.load(f'{molloc}/{datasets[0]}_train{molpattern}')
+    for d in datasets:
+        for t in ['train', 'val', 'test']:
+            if d!=datasets[0] or t!='train':
+                data1 = np.concatenate((data1, np.load(f'{esmloc}/{d}_{t}{esmpattern}')))
+                data2 =  np.concatenate((data2, np.load(f'{molloc}/{d}_{t}{molpattern}')))
+    return torch.tensor(data1).to(torch.float32), torch.tensor(data2).to(torch.float32)
+
 
 '''
 Test training of projection layers
@@ -154,34 +166,54 @@ def train_esm_mol():
     ### loss function is Triplet Margin loss
     lossfn = nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction='mean')
   
-    '''
-    Load data
-    '''
-    esm_pattern ='_prot.dat-embeddings.npy'
-    mol_pattern = '.smi-embeddings.npy'
-    datasets = ['BindingDB', 'DAVIS']#'BIOSNAP', 'DAVIS']
-    #'BindingDB', 
-    trainloader, testloader, protdat, smidat = load_emb_data_together(config['esmloc'], config['molloc'], datasets, esm_pattern, mol_pattern, train_prop=config['trainp'], batch = config['batch'])
     if config['Train']:
         print("Training")
         '''
         Do training
         '''
+
+        '''
+        Load data
+        '''
+
+        esm_pattern ='_prot.dat-embeddings.npy'
+        mol_pattern = '.smi-embeddings.npy'
+        datasets = ['BindingDB', 'DAVIS']#'BIOSNAP', 'DAVIS']
+        #'BindingDB', 
+        trainloader, testloader, protdat, smidat = load_emb_data_together(config['esmloc'], config['molloc'], datasets, esm_pattern, mol_pattern, train_prop=config['trainp'], batch = config['batch'])
         projhead = EsmMolProjectionHead(projection_1, projection_2, lossfn, config['lr'])
         wandb_logger = WandbLogger(project=config["wandbproj"])
         trainer = L.Trainer(
                                 max_epochs=config['epoch'],
                                 logger=wandb_logger,
-                                log_every_n_steps=1)
+                                log_every_n_steps=1,
+                                callbacks=[EarlyStopping(monitor="val_loss",
+                                                        mode="min", 
+                                                        patience = config['early'])])
 
         trainer.fit(projhead, trainloader, testloader)
+
     else:
         print("no Training")
 
     if config['Infer']==True:
+        print("Inference")
         '''
         Do inference
         '''
+        
+        '''
+        Load data
+        '''
+        datasets = config['datasets'] 
+        esm_pattern ='_prot.dat-embeddings.npy'
+        mol_pattern = '.smi-embeddings.npy'
+        protdat, smidat = load_inference_emb(config['esmloc'], 
+                                                config['molloc'],
+                                                datasets,
+                                                esm_pattern,
+                                                mol_pattern)
+
         projhead = EsmMolProjectionHead.load_from_checkpoint(config['Check'], projection_1=projection_1, projection_2=projection_2, loss_fn=lossfn, base_lr=config['lr'])
         print(projhead.projection_1)
         projhead.to('cuda')
@@ -191,9 +223,8 @@ def train_esm_mol():
         print(prot_proj.size())
         print(mol_proj.size())
         out_patt = config['InfOut']
-        torch.save(prot_proj, f'prot_{out_patt}.pt')
-        torch.save(mol_proj, 'mol_{out_patt}.pt')
-
+        torch.save(prot_proj, f'prot_{out_patt}')
+        torch.save(mol_proj, f'mol_{out_patt}')
     return 
 
 if __name__ == "__main__":
