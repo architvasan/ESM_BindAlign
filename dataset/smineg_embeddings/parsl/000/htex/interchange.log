@@ -1,0 +1,11 @@
+2024-03-16 11:43:37.726 interchange:135 HTEX-Interchange(1246171) MainThread __init__ [INFO]  Attempting connection to client at 127.0.0.1 on ports: 55511,55537,55525
+2024-03-16 11:43:37.824 interchange:147 HTEX-Interchange(1246171) MainThread __init__ [INFO]  Connected to client
+2024-03-16 11:43:37.826 interchange:178 HTEX-Interchange(1246171) MainThread __init__ [INFO]  Bound to ports 15144,14456 for incoming worker connections
+2024-03-16 11:43:37.826 interchange:193 HTEX-Interchange(1246171) MainThread __init__ [INFO]  Platform info: {'parsl_v': '2024.01.29', 'python_v': '3.11.7', 'os': 'Linux', 'hostname': 'lambda0', 'dir': '/lambda_stor/data/avasan/ESM_BindAlign'}
+2024-03-16 11:43:37.827 interchange:344 HTEX-Interchange(1246171) MainThread start [INFO]  Incoming ports bound
+2024-03-16 11:43:37.829 interchange:224 HTEX-Interchange(1246171) Interchange-Task-Puller task_puller [INFO]  Starting
+2024-03-16 11:43:39.242 interchange:414 HTEX-Interchange(1246171) MainThread process_task_outgoing_incoming [INFO]  Adding manager: b'13c576d9fd20' to ready queue
+2024-03-16 11:43:39.242 interchange:417 HTEX-Interchange(1246171) MainThread process_task_outgoing_incoming [INFO]  Registration info for manager b'13c576d9fd20': {'parsl_v': '2024.01.29', 'python_v': '3.11.7', 'worker_count': 2, 'uid': '13c576d9fd20', 'block_id': '0', 'prefetch_capacity': 0, 'max_capacity': 2, 'os': 'Linux', 'hostname': 'lambda0', 'dir': '/lambda_stor/data/avasan/ESM_BindAlign', 'cpu_count': 40, 'total_memory': 540670509056}
+2024-03-16 11:43:39.243 interchange:435 HTEX-Interchange(1246171) MainThread process_task_outgoing_incoming [INFO]  Manager b'13c576d9fd20' has compatible Parsl version 2024.01.29
+2024-03-16 11:43:39.243 interchange:436 HTEX-Interchange(1246171) MainThread process_task_outgoing_incoming [INFO]  Manager b'13c576d9fd20' has compatible Python version 3.11
+2024-03-16 11:45:10.238 interchange:309 HTEX-Interchange(1246171) Interchange-Command _command_server [INFO]  Received HOLD_WORKER for b'13c576d9fd20'

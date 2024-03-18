@@ -1,0 +1,19 @@
+{
+    "hsize1": 2560,
+    "hsize2": 768,
+    "proj": 128,
+    "esmloc": "/lambda_stor/data/avasan/ESM_BindAlign/dataset/protein_embeddings",
+    "molloc": "/lambda_stor/data/avasan/ESM_BindAlign/dataset/smi_embeddings",
+    "out": "output",
+    "dataset": "BindingDB",
+    "trainp": 0.8,
+    "epoch": 100,
+    "batch": 256,
+    "lr": 0.0001,
+    "early": 100,
+    "Train": false,
+    "Infer": true,
+    "Check": "metric_learning2/fsse25rc/checkpoints/epoch=99-step=2200.ckpt",
+    "wandbproj": "metric_learning2",
+    "InfOut": "proj_test.pt"
+}

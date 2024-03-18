@@ -1,0 +1,779 @@
+bash: /home/avasan/miniconda3/lib/libtinfo.so.6: no version information available (required by bash)
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+config.json:   0%|          | 0.00/1.01k [00:00<?, ?B/s]config.json: 100%|██████████| 1.01k/1.01k [00:00<00:00, 6.49MB/s]
+configuration_molformer.py:   0%|          | 0.00/7.60k [00:00<?, ?B/s]configuration_molformer.py: 100%|██████████| 7.60k/7.60k [00:00<00:00, 41.3MB/s]
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- configuration_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- configuration_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+modeling_molformer.py:   0%|          | 0.00/39.3k [00:00<?, ?B/s]modeling_molformer.py: 100%|██████████| 39.3k/39.3k [00:00<00:00, 4.10MB/s]
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- modeling_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- modeling_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+pytorch_model.bin:   0%|          | 0.00/187M [00:00<?, ?B/s]pytorch_model.bin:   6%|▌         | 10.5M/187M [00:00<00:02, 64.5MB/s]pytorch_model.bin:  11%|█         | 21.0M/187M [00:00<00:02, 62.9MB/s]pytorch_model.bin:  22%|██▏       | 41.9M/187M [00:00<00:01, 73.0MB/s]pytorch_model.bin:  28%|██▊       | 52.4M/187M [00:00<00:02, 50.8MB/s]pytorch_model.bin:  39%|███▉      | 73.4M/187M [00:01<00:01, 65.3MB/s]pytorch_model.bin:  45%|████▍     | 83.9M/187M [00:01<00:01, 56.1MB/s]pytorch_model.bin:  56%|█████▌    | 105M/187M [00:01<00:01, 59.3MB/s] pytorch_model.bin:  62%|██████▏   | 115M/187M [00:02<00:01, 53.5MB/s]pytorch_model.bin:  73%|███████▎  | 136M/187M [00:02<00:00, 53.2MB/s]pytorch_model.bin:  78%|███████▊  | 147M/187M [00:02<00:00, 57.2MB/s]pytorch_model.bin:  90%|████████▉ | 168M/187M [00:02<00:00, 60.8MB/s]pytorch_model.bin:  95%|█████████▌| 178M/187M [00:02<00:00, 66.2MB/s]pytorch_model.bin: 100%|██████████| 187M/187M [00:03<00:00, 61.3MB/s]
+tokenizer_config.json:   0%|          | 0.00/1.29k [00:00<?, ?B/s]tokenizer_config.json: 100%|██████████| 1.29k/1.29k [00:00<00:00, 6.18MB/s]
+tokenization_molformer_fast.py:   0%|          | 0.00/6.50k [00:00<?, ?B/s]tokenization_molformer_fast.py: 100%|██████████| 6.50k/6.50k [00:00<00:00, 45.5MB/s]
+tokenization_molformer.py:   0%|          | 0.00/9.48k [00:00<?, ?B/s]tokenization_molformer.py: 100%|██████████| 9.48k/9.48k [00:00<00:00, 58.0MB/s]
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- tokenization_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- tokenization_molformer_fast.py
+- tokenization_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- tokenization_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ibm/MoLFormer-XL-both-10pct:
+- tokenization_molformer_fast.py
+- tokenization_molformer.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+vocab.json:   0%|          | 0.00/41.6k [00:00<?, ?B/s]vocab.json: 100%|██████████| 41.6k/41.6k [00:00<00:00, 20.9MB/s]
+tokenizer.json:   0%|          | 0.00/54.0k [00:00<?, ?B/s]tokenizer.json: 100%|██████████| 54.0k/54.0k [00:00<00:00, 4.42MB/s]
+special_tokens_map.json:   0%|          | 0.00/125 [00:00<?, ?B/s]special_tokens_map.json: 100%|██████████| 125/125 [00:00<00:00, 819kB/s]
+  0%|          | 0/178 [00:00<?, ?it/s]  0%|          | 0/99 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/99 [00:14<?, ?it/s]
+  0%|          | 0/178 [00:14<?, ?it/s]
+  0%|          | 0/90 [00:00<?, ?it/s]  0%|          | 0/150 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+  0%|          | 0/150 [00:07<?, ?it/s]
+  0%|          | 0/90 [00:07<?, ?it/s]
+  0%|          | 0/22 [00:00<?, ?it/s]  0%|          | 0/43 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+  0%|          | 0/22 [00:06<?, ?it/s]
+  0%|          | 0/43 [00:06<?, ?it/s]
+  0%|          | 0/17 [00:00<?, ?it/s]  0%|          | 0/90 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/17 [00:07<?, ?it/s]
+  0%|          | 0/90 [00:07<?, ?it/s]
+  0%|          | 0/99 [00:00<?, ?it/s]  0%|          | 0/45 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/45 [00:06<?, ?it/s]
+  0%|          | 0/99 [00:06<?, ?it/s]
+  0%|          | 0/178 [00:00<?, ?it/s]  0%|          | 0/150 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/178 [00:06<?, ?it/s]
+  0%|          | 0/150 [00:06<?, ?it/s]
+  0%|          | 0/22 [00:00<?, ?it/s]  0%|          | 0/90 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/22 [00:07<?, ?it/s]
+  0%|          | 0/90 [00:07<?, ?it/s]
+  0%|          | 0/17 [00:00<?, ?it/s]  0%|          | 0/43 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/17 [00:06<?, ?it/s]
+  0%|          | 0/43 [00:06<?, ?it/s]
+  0%|          | 0/45 [00:00<?, ?it/s]  0%|          | 0/90 [00:00<?, ?it/s]OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #182: GOMP_CPU_AFFINITY: ignored because KMP_AFFINITY has been defined
+OMP: Warning #124: Ignoring invalid OS proc ID 41.
+OMP: Warning #124: Ignoring invalid OS proc ID 42.
+OMP: Warning #124: Ignoring invalid OS proc ID 43.
+OMP: Warning #124: Ignoring invalid OS proc ID 44.
+OMP: Warning #124: Ignoring invalid OS proc ID 45.
+OMP: Warning #124: Ignoring invalid OS proc ID 46.
+OMP: Warning #124: Ignoring invalid OS proc ID 47.
+OMP: Warning #124: Ignoring invalid OS proc ID 48.
+OMP: Warning #124: Ignoring invalid OS proc ID 49.
+OMP: Warning #124: Ignoring invalid OS proc ID 1.
+OMP: Warning #124: Ignoring invalid OS proc ID 50.
+OMP: Warning #124: Ignoring invalid OS proc ID 2.
+OMP: Warning #124: Ignoring invalid OS proc ID 51.
+OMP: Warning #124: Ignoring invalid OS proc ID 3.
+OMP: Warning #124: Ignoring invalid OS proc ID 52.
+OMP: Warning #124: Ignoring invalid OS proc ID 4.
+OMP: Warning #124: Ignoring invalid OS proc ID 53.
+OMP: Warning #124: Ignoring invalid OS proc ID 5.
+OMP: Warning #124: Ignoring invalid OS proc ID 54.
+OMP: Warning #124: Ignoring invalid OS proc ID 6.
+OMP: Warning #124: Ignoring invalid OS proc ID 55.
+OMP: Warning #124: Ignoring invalid OS proc ID 7.
+OMP: Warning #124: Ignoring invalid OS proc ID 56.
+OMP: Warning #124: Ignoring invalid OS proc ID 8.
+OMP: Warning #124: Ignoring invalid OS proc ID 57.
+OMP: Warning #124: Ignoring invalid OS proc ID 9.
+OMP: Warning #124: Ignoring invalid OS proc ID 58.
+OMP: Warning #124: Ignoring invalid OS proc ID 10.
+OMP: Warning #124: Ignoring invalid OS proc ID 59.
+OMP: Warning #124: Ignoring invalid OS proc ID 11.
+OMP: Warning #124: Ignoring invalid OS proc ID 60.
+OMP: Warning #124: Ignoring invalid OS proc ID 12.
+OMP: Warning #124: Ignoring invalid OS proc ID 61.
+OMP: Warning #124: Ignoring invalid OS proc ID 13.
+OMP: Warning #124: Ignoring invalid OS proc ID 62.
+OMP: Warning #124: Ignoring invalid OS proc ID 14.
+OMP: Warning #124: Ignoring invalid OS proc ID 63.
+OMP: Warning #124: Ignoring invalid OS proc ID 15.
+OMP: Warning #124: Ignoring invalid OS proc ID 64.
+OMP: Warning #124: Ignoring invalid OS proc ID 16.
+OMP: Warning #124: Ignoring invalid OS proc ID 65.
+OMP: Warning #124: Ignoring invalid OS proc ID 17.
+OMP: Warning #124: Ignoring invalid OS proc ID 66.
+OMP: Warning #124: Ignoring invalid OS proc ID 18.
+OMP: Warning #124: Ignoring invalid OS proc ID 67.
+OMP: Warning #124: Ignoring invalid OS proc ID 19.
+OMP: Warning #124: Ignoring invalid OS proc ID 68.
+OMP: Warning #124: Ignoring invalid OS proc ID 20.
+OMP: Warning #124: Ignoring invalid OS proc ID 69.
+OMP: Warning #124: Ignoring invalid OS proc ID 21.
+OMP: Warning #124: Ignoring invalid OS proc ID 70.
+OMP: Warning #124: Ignoring invalid OS proc ID 22.
+OMP: Warning #124: Ignoring invalid OS proc ID 71.
+OMP: Warning #124: Ignoring invalid OS proc ID 23.
+OMP: Warning #124: Ignoring invalid OS proc ID 72.
+OMP: Warning #124: Ignoring invalid OS proc ID 24.
+OMP: Warning #124: Ignoring invalid OS proc ID 73.
+OMP: Warning #124: Ignoring invalid OS proc ID 25.
+OMP: Warning #124: Ignoring invalid OS proc ID 74.
+OMP: Warning #124: Ignoring invalid OS proc ID 26.
+OMP: Warning #124: Ignoring invalid OS proc ID 75.
+OMP: Warning #124: Ignoring invalid OS proc ID 27.
+OMP: Warning #124: Ignoring invalid OS proc ID 76.
+OMP: Warning #124: Ignoring invalid OS proc ID 28.
+OMP: Warning #124: Ignoring invalid OS proc ID 77.
+OMP: Warning #124: Ignoring invalid OS proc ID 29.
+OMP: Warning #124: Ignoring invalid OS proc ID 78.
+OMP: Warning #124: Ignoring invalid OS proc ID 30.
+OMP: Warning #124: Ignoring invalid OS proc ID 79.
+OMP: Warning #124: Ignoring invalid OS proc ID 31.
+OMP: Warning #124: Ignoring invalid OS proc ID 32.
+OMP: Warning #124: Ignoring invalid OS proc ID 33.
+OMP: Warning #124: Ignoring invalid OS proc ID 34.
+OMP: Warning #124: Ignoring invalid OS proc ID 35.
+OMP: Warning #124: Ignoring invalid OS proc ID 36.
+OMP: Warning #124: Ignoring invalid OS proc ID 37.
+OMP: Warning #124: Ignoring invalid OS proc ID 38.
+OMP: Warning #124: Ignoring invalid OS proc ID 39.
+  0%|          | 0/90 [00:06<?, ?it/s]
+  0%|          | 0/45 [00:06<?, ?it/s]
+/homes/avasan/miniconda3/envs/esm_align/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 9 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

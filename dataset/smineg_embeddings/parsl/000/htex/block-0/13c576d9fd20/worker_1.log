@@ -1,0 +1,30 @@
+2024-03-16 11:43:39.551 worker_log:574 1246207 MainThread [INFO]  Worker 1 started
+2024-03-16 11:43:39.553 worker_log:622 1246207 MainThread [INFO]  Set worker CPU affinity to [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
+2024-03-16 11:43:39.553 worker_log:631 1246207 MainThread [INFO]  Pinned worker to accelerator: 1
+2024-03-16 11:43:39.554 worker_log:659 1246207 MainThread [INFO]  Received executor task 1
+2024-03-16 11:44:13.668 worker_log:675 1246207 MainThread [INFO]  Completed executor task 1
+2024-03-16 11:44:13.669 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 1
+2024-03-16 11:44:13.684 worker_log:659 1246207 MainThread [INFO]  Received executor task 3
+2024-03-16 11:44:21.440 worker_log:675 1246207 MainThread [INFO]  Completed executor task 3
+2024-03-16 11:44:21.441 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 3
+2024-03-16 11:44:21.442 worker_log:659 1246207 MainThread [INFO]  Received executor task 6
+2024-03-16 11:44:28.391 worker_log:675 1246207 MainThread [INFO]  Completed executor task 6
+2024-03-16 11:44:28.392 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 6
+2024-03-16 11:44:28.403 worker_log:659 1246207 MainThread [INFO]  Received executor task 7
+2024-03-16 11:44:35.613 worker_log:675 1246207 MainThread [INFO]  Completed executor task 7
+2024-03-16 11:44:35.614 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 7
+2024-03-16 11:44:35.625 worker_log:659 1246207 MainThread [INFO]  Received executor task 9
+2024-03-16 11:44:42.450 worker_log:675 1246207 MainThread [INFO]  Completed executor task 9
+2024-03-16 11:44:42.451 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 9
+2024-03-16 11:44:42.462 worker_log:659 1246207 MainThread [INFO]  Received executor task 11
+2024-03-16 11:44:49.383 worker_log:675 1246207 MainThread [INFO]  Completed executor task 11
+2024-03-16 11:44:49.384 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 11
+2024-03-16 11:44:49.396 worker_log:659 1246207 MainThread [INFO]  Received executor task 13
+2024-03-16 11:44:56.422 worker_log:675 1246207 MainThread [INFO]  Completed executor task 13
+2024-03-16 11:44:56.423 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 13
+2024-03-16 11:44:56.424 worker_log:659 1246207 MainThread [INFO]  Received executor task 16
+2024-03-16 11:45:03.253 worker_log:675 1246207 MainThread [INFO]  Completed executor task 16
+2024-03-16 11:45:03.254 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 16
+2024-03-16 11:45:03.265 worker_log:659 1246207 MainThread [INFO]  Received executor task 17
+2024-03-16 11:45:10.218 worker_log:675 1246207 MainThread [INFO]  Completed executor task 17
+2024-03-16 11:45:10.219 worker_log:686 1246207 MainThread [INFO]  All processing finished for executor task 17
