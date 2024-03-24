@@ -1,0 +1,15 @@
+input_dir: dataset
+output_dir: dataset/protneg_embeddings
+glob_patterns: ["*neg.dat"]
+#model: facebook/esm2_t36_3B_UR50D
+num_data_workers: 1
+batch_size: 4
+data_reader_fn: single_sequence_per_line
+embedder_config:
+    name: esm2
+    pretrained_model_name_or_path: facebook/esm2_t36_3B_UR50D
+    compile_model: false
+#embedding_model_fn: esm
+compute_config:
+  name: workstation
+  available_accelerators: ["1", "2"]
