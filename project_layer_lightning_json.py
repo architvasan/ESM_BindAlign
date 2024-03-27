@@ -110,7 +110,9 @@ def load_inference_emb(esmloc, molloc, datasets, esmpattern, molpattern):
     data2 = np.load(f'{molloc}/{datasets[0]}_train{molpattern}')
     for d in datasets:
         for t in ['train', 'val', 'test']:
-            if d!=datasets[0] or t!='train':
+            if d==datasets[0] and t=='train':
+                continue
+            else:
                 data1 = np.concatenate((data1, np.load(f'{esmloc}/{d}_{t}{esmpattern}')))
                 data2 =  np.concatenate((data2, np.load(f'{molloc}/{d}_{t}{molpattern}')))
     return torch.tensor(data1).to(torch.float32), torch.tensor(data2).to(torch.float32)
@@ -207,7 +209,7 @@ def train_esm_mol():
         '''
         datasets = config['datasets'] 
         esm_pattern ='_prot.dat-embeddings.npy'
-        mol_pattern = '.smi-embeddings.npy'
+        mol_pattern = '.npy'
         protdat, smidat = load_inference_emb(config['esmloc'], 
                                                 config['molloc'],
                                                 datasets,

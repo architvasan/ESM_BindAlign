@@ -1,17 +1,21 @@
-input_dir: dataset
-output_dir: dataset/smineg_embeddings
+input_dir: /nfs/lambda_stor_01/data/avasan/ESM_BindAlign/dataset
+output_dir: /nfs/lambda_stor_01/data/avasan/ESM_BindAlign/dataset/smineg_embeddings
 glob_patterns:
 - '*neg.smi'
-model: ibm/MoLFormer-XL-both-10pct
-num_data_workers: 1
+num_data_workers: 2
 batch_size: 64
 data_reader_fn: single_sequence_per_line
-embedding_model_fn: auto
-compute_settings:
+embedder_config:
+    name: esm2
+    pretrained_model_name_or_path: ibm/MoLFormer-XL-both-10pct
+    half_precision: true
+    eval_mode: true
+    compile_model: false
+compute_config:
     name: workstation
     available_accelerators:
-    - '0'
-    - '1'
+    - '2'
+    - '3'
     worker_port_range:
     - 10000
     - 20000

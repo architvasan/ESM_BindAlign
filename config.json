@@ -11,8 +11,8 @@
     "batch": 256,
     "lr": 0.0001,
     "early": 10,
-    "Train": false,
-    "Infer": true,
+    "Train": true,
+    "Infer": false,
     "Check": "./metric_learning3/jzfkqdkx/checkpoints/epoch=99-step=1700.ckpt",
     "wandbproj": "metric_learning3",
     "InfOut": "proj_test.pt"
